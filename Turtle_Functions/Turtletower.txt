@@ -1,0 +1,137 @@
+-- Builder 1
+layers = {...}
+fuelSlot = 1
+materialSlot = 2
+turtle.select(materialSlot)
+
+
+
+function checkMaterialLevel()			--if the current slot is out of material, look at the next slot
+	if turtle.getItemCount() < 1 then
+		materialSlot = materialSlot +1
+		if materialSlot < 17 then
+			turtle.select(materialSlot)
+			checkMaterialLevel()  -- check again
+		else
+			print("Out of Material")
+			return 0
+		end
+	else
+		return 1
+	end
+end
+
+
+function buildLevel()
+	finished = 0
+	
+	haveMaterials = checkMaterialLevel()
+	while (haveMaterials==1) and (finished == 0) do
+		
+		turtle.place()
+		haveMaterials = checkMaterialLevel()
+		for iteration=1,4,1 do
+			turtle.turnRight()
+			turtle.forward()
+			turtle.turnLeft()
+			turtle.place()
+
+			haveMaterials = checkMaterialLevel()
+
+			turtle.turnRight()
+			turtle.forward()
+			turtle.turnLeft()
+			turtle.place()
+
+		
+			haveMaterials = checkMaterialLevel()
+
+			turtle.turnRight()
+			turtle.forward()
+			turtle.turnLeft()
+			turtle.place()
+
+	
+			haveMaterials = checkMaterialLevel()
+
+			turtle.turnRight()
+			turtle.forward()
+			turtle.turnLeft()
+			turtle.place()
+
+	
+			haveMaterials = checkMaterialLevel()
+
+			turtle.turnRight()
+			turtle.forward()
+			turtle.turnLeft()
+			turtle.place()
+
+
+			haveMaterials = checkMaterialLevel()
+
+			turtle.turnRight()
+			turtle.forward()
+			turtle.turnLeft()
+			turtle.place()
+
+			haveMaterials = checkMaterialLevel()
+
+			turtle.turnRight()
+			turtle.place()
+
+			haveMaterials = checkMaterialLevel()
+
+			turtle.turnRight()
+			turtle.forward()
+			turtle.turnLeft()
+			turtle.forward()
+			turtle.place()
+
+		
+			haveMaterials = checkMaterialLevel()
+
+			turtle.turnRight()
+			turtle.forward()
+			turtle.turnLeft()
+			turtle.forward()
+			turtle.place()
+
+			haveMaterials = checkMaterialLevel()
+
+			turtle.turnRight()
+			turtle.forward()
+			turtle.turnLeft()
+			turtle.forward()
+			turtle.place()
+
+
+			haveMaterials = checkMaterialLevel()
+
+			turtle.turnRight()
+			turtle.forward()
+			turtle.turnLeft()
+			turtle.forward()
+			turtle.place()
+
+			haveMaterials = checkMaterialLevel()
+
+			turtle.turnRight()
+			turtle.forward()
+			turtle.turnLeft()
+			turtle.forward()
+			turtle.place()
+
+			haveMaterials = checkMaterialLevel()
+
+		end
+		turtle.up()
+		finished = 1
+	end
+	
+	
+end	
+
+for level = 1,layers[1],1 do
+	buildLevel()
+end
